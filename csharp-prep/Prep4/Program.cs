@@ -36,6 +36,6 @@ class Program
 
             Console.WriteLine($"The sum is: {sum}");
             Console.WriteLine($"The largest number is: {largest}");
-            
+        }
     }
 }
