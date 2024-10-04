@@ -5,7 +5,7 @@ class Program
     {
         // Crea la referencia y la escritura
         Reference reference = new Reference("Juan", 3, 16);
-        Scripture scripture = new Scripture(reference, "Porque de tal manera amó Dios al mundo que ha dado a su Hijo unigénito");
+        Scripture scripture = new Scripture(reference, "For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life.");
 
         Reference reference1 = new Reference("Proverbs",3 ,4,5);
         Scripture scripture2 = new Scripture(reference1,"Let not mercy and truth forsake thee: bind them about thy neck; write them upon the table of thine heart: So shalt thou find favour and good understanding in the sight of God and man. Trust in the Lord with all thine heart; and lean not unto thine own understanding.");
