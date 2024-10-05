@@ -4,35 +4,35 @@ class Program
 {
     static void Main(string[] args)
     {
-        Random Generator = new Random();
-        int user_guess = 0;
-        int magic_number = Generator.Next(1,100);
+        // For Parts 1 and 2, where the user specified the number...
+         Console.Write("What is the magic number? ");
+        int magicNumber = int.Parse(Console.ReadLine());
+        
+        // For Part 3, where we use a random number
+        Random randomGenerator = new Random();
+        //int magicNumber = randomGenerator.Next(1, 101);
 
-        Console.WriteLine("What is the magic number?");
-        string input = Console.ReadLine();
-        magic_number = int.Parse(input);
+        int guess = -1;
 
-        while (user_guess != magic_number)
+        // We could also use a do-while loop here...
+        while (guess != magicNumber)
         {
-        Console.WriteLine("Whats is your guess?");
-        string guess = Console.ReadLine();
-        user_guess = int.Parse(guess);
+            Console.Write("What is your guess? ");
+            guess = int.Parse(Console.ReadLine());
 
-            if(user_guess == magic_number )
+            if (magicNumber > guess)
+            {
+                Console.WriteLine("Higher");
+            }
+            else if (magicNumber < guess)
+            {
+                Console.WriteLine("Lower");
+            }
+            else
             {
                 Console.WriteLine("You guessed it!");
             }
 
-            else if (user_guess > magic_number)
-            {
-                Console.WriteLine("Higher");
-            }
-
-            else
-            {
-                Console.WriteLine("Lower");
-            }
-        }
-        
+        }                    
     }
 }

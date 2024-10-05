@@ -4,33 +4,45 @@ class Program
 {
     static void Main(string[] args)
     {
+        DisplayWelcomeMessage();
+
+        string userName = PromptUserName();
+        int userNumber = PromptUserNumber();
+
+        int squaredNumber = SquareNumber(userNumber);
+
+        DisplayResult(userName, squaredNumber);
+    }
+
+    static void DisplayWelcomeMessage()
+    {
         Console.WriteLine("Welcome to the program!");
-
-        string name = PromptUserName();
-        double number = PromptUserNumber();
-        double result = Math.Sqrt(number);
-
-        DisplayResult(name, result);
     }
 
     static string PromptUserName()
     {
-        Console.WriteLine("Please enter your name:");
+        Console.Write("Please enter your name: ");
         string name = Console.ReadLine();
+
         return name;
     }
 
-    static double PromptUserNumber()
+    static int PromptUserNumber()
     {
-        Console.WriteLine("Please enter your favourite number:");
-        double input = double.Parse(Console.ReadLine());
-        return input;
-        
+        Console.Write("Please enter your favorite number: ");
+        int number = int.Parse(Console.ReadLine());
+
+        return number;
     }
 
-    static void DisplayResult(string name, double result )
+    static int SquareNumber(int number)
     {
-        Console.WriteLine($"{name}, the square of your number is {result}.");
+        int square = number * number;
+        return square;
     }
-    
+
+    static void DisplayResult(string name, int square)
+    {
+        Console.WriteLine($"{name}, the square of your number is {square}");
+    }
 }

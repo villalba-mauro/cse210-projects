@@ -48,3 +48,27 @@ class Program
         Console.WriteLine("Todas las palabras han sido ocultadas.");
     }
 }
+
+
+public class Car
+{
+    // Private attribute
+    private int speed;
+
+    // Public method to get the value of speed
+    public int GetSpeed()
+    {
+        return speed;
+    }
+
+    // Public method to set the value of speed
+    public void SetSpeed(int value)
+    {
+        if (value >= 0)  // Condition to protect the value
+        {
+            speed = value;
+        }
+    }
+}
+
+
