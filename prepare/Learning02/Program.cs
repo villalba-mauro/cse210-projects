@@ -3,7 +3,7 @@ class Program {
 
 static void Main(string[] args)
 {
-    Job job1 = new Job();
+    Job job1 = new Job();         // Instanciamos una clase y le asignamos un nombre
     job1._jobTitle = "Carpenter";
     job1._company = "Francovich";
     job1._startYear = 2018;

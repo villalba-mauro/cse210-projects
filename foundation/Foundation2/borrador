@@ -1,0 +1,112 @@
+public class Order
+{
+    private Customer _customer; //para llamar una clase, primero va el tipo de dato (nombre de la CLASE) y luego el nombre de la variable para acceder a sus metodos y propiedades
+    private List<Products> _products = new List<Products>();
+
+    public Order(Customer )
+    {
+
+    }
+    
+    public double totalPrice()
+    {
+
+    }
+
+    public string packingLabel()
+    {
+        
+    }
+
+    public string shippingLabel()
+    {
+        _customer.CustomerName();
+        _customer.GetfullAdress();
+        string _nombre = _customer.CustomerName();
+        string _direccion = _customer.GetfullAdress();
+
+        string fullLabel = $"{_nombre},{_direccion}";
+    }
+}
+
+----------------------------------------------------------------
+
+public class Products
+{
+    private string _productName;
+    private int _productID;
+    private decimal _productPrice;
+    private int _quantity;
+
+    public Products(string name, int id, decimal price, int quantity)
+    {
+        _productName = name;
+        _productID = id;
+        _productPrice = price;
+        _quantity = quantity;
+    }
+    
+    public string GetName() => _productName;
+    public int GetProductId() => _productID;
+    public decimal GetPrice() => _productPrice;
+    public int GetQuantity() => _quantity;
+
+    public decimal GetTotalCost()
+    {
+        return _productPrice * _quantity;
+    }
+
+}
+
+--------------------------------------------------------
+public class Adress
+{
+    private string _street;
+    private string _city;
+    private string _state;
+    private string _country;
+    
+
+    public Adress(string street, string city, string state, string country)
+    {
+        _street = street;
+        _city = city;
+        _state = state;
+        _country = country;
+    }
+    public bool isInUsa()
+    {
+        return _country.ToLower() == "usa";
+    }
+
+    public string fullAdress()
+    {
+        return $"{_street}\n{_city}, {_state}\n{_country}";
+    }
+
+}
+
+---------------------------------------------------------------------------
+
+public class Customer
+{
+    private string _customerName;
+    private Adress _customerAdress;
+
+    public  Customer(string Name, Adress adress){
+        _customerName = Name;
+        _customerAdress = adress;
+    }
+
+    public string CustomerName()=> _customerName;
+    public string GetfullAdress()
+    {
+        return _customerAdress.fullAdress();
+    }
+    
+    public bool isInUsa()
+    {
+      return _customerAdress.isInUsa();
+    }
+
+}
