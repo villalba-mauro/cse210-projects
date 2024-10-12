@@ -41,7 +41,7 @@ class Program
         Console.WriteLine("ORDER 2");
         Console.WriteLine(order2.packingLabel());
         Console.WriteLine(order2.shippingLabel());
-        Console.WriteLine($"Total Price: {order2.totalPrice()}");
+        Console.WriteLine($"Total Price: {order2.totalPrice():C}");
         Console.WriteLine("----------------------------------------------------------------");
         Console.WriteLine("Your product has been sent, thank you for your purchase.");
     }

@@ -75,11 +75,11 @@ class Program
         // Iterar sobre la lista de videos y mostrar la información
         foreach (Video video in videos)
         {
-            Console.WriteLine($"Título: {video.Title}");
-            Console.WriteLine($"Autor: {video.Author}");
-            Console.WriteLine($"Duración: {video.Duration} segundos");
-            Console.WriteLine($"Cantidad de comentarios: {video.GetCommentCount()}");
-            Console.WriteLine("Comentarios:");
+            Console.WriteLine($"Title: {video.Title}");
+            Console.WriteLine($"Author: {video.Author}");
+            Console.WriteLine($"Duration: {video.Duration} segundos");
+            Console.WriteLine($"Number of comments: {video.GetCommentCount()}");
+            Console.WriteLine("Comments:");
             video.DisplayComments();
             Console.WriteLine(new string('-', 50)); // Línea separadora
         }
