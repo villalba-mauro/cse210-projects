@@ -1,47 +1,3 @@
-/*public class Reflecting : Activiy
-{
-private List<string> _prompts;
-private List<string> _questions;
-
-public Reflecting (int duration, string description, string name) : base (name, description,duration)
-{
-    _name = name;
-    _description = description;
-    _duration = duration;
-    _prompts = new List<string>();
-    _questions = new List<string>();
-}
-
-
-public void Run()
-{
-
-}
-
-public string GetRandomPrompt()
-{
-    return "";
-}
-
-public string GetRandomQuestion()
-{
-    return "";
-}
-
-public void DisplayPrompt()
-{
-
-}
-
-public void DisplayQuestions()
-{
-
-}
-
-}*/
-
-/*----------------------------------------------------------------------------------------------------------------*/
-
 public class ReflectingActivity : Activity
 {
     private List<string> _prompts = new List<string>
@@ -94,7 +50,7 @@ public class ReflectingActivity : Activity
         DateTime endTime = DateTime.Now.AddSeconds(_duration);
         while (DateTime.Now < endTime)
         {
-            Console.Write(GetRandomQuestion());
+            Console.WriteLine(GetRandomQuestion());
             Console.Write(" " );
             ShowSpinner(5);
         }

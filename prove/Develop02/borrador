@@ -1,0 +1,305 @@
+class Program
+{
+    static void Main(string[] args)
+    {
+        bool running = true;
+
+        while (running)
+        {
+            Console.Clear();
+            Console.WriteLine("Mindfulness Program Menu");
+            Console.WriteLine("1. Breathing Activity");
+            Console.WriteLine("2. Listing Activity");
+            Console.WriteLine("3. Reflecting Activity");
+            Console.WriteLine("4. Exit");
+            Console.Write("Please select an option: ");
+            string choice = Console.ReadLine();
+
+            switch (choice)
+            {
+                case "1":
+                    Console.Clear();
+                    RunBreathingActivity();
+                    break;
+                case "2":
+                    Console.Clear();
+                    RunListingActivity();
+                    break;
+                case "3":
+                    Console.Clear();
+                    RunReflectingActivity();
+                    break;
+                case "4":
+                    
+                    Console.WriteLine("Exiting program. Goodbye!");
+                    running = false;
+                    break;
+                default:
+                    Console.WriteLine("Invalid option. Please try again.");
+                    Thread.Sleep(2000); // Pausa para que el usuario vea el mensaje
+                    break;
+            }
+        }
+    }
+
+    static void RunBreathingActivity()
+    {
+        BreathingActivity breathingActivity = new BreathingActivity();
+        breathingActivity.Run();
+        Console.Clear();
+        //WaitBeforeMenu();
+    }
+
+    static void RunListingActivity()
+    {
+        ListingActivity listingActivity = new ListingActivity();
+        listingActivity.Run();
+       Console.Clear();
+       //WaitBeforeMenu();
+        
+    }
+
+    static void RunReflectingActivity()
+    {
+        ReflectingActivity reflectingActivity = new ReflectingActivity();
+        reflectingActivity.Run();
+        Console.Clear();
+       //WaitBeforeMenu();
+    }
+
+        // Método para pausar y luego limpiar la consola antes de volver al menú
+    static void WaitBeforeMenu()
+    {
+        Console.WriteLine("\nPress any key to return to the menu...");
+        Console.ReadKey();  // Espera a que el usuario presione una tecla
+        Console.Clear();  // Limpia la consola antes de volver al menú
+    }
+}
+
+/*-----------------------------------------------------------------------------------------------------------------------*/
+
+public class Activiy
+{
+protected string _name;
+protected string _description;
+protected int _duration;
+
+public Activiy(string name, string description /*int duration*)
+{
+    _name = name;
+    _description = description;
+   /* _duration = duration;*/
+}
+
+public string DisplayStartingMessage()
+{
+    
+    return $"Welcome to the {_name} Activity";
+    Console.WriteLine($"Starting {_name}: {_description}");
+    Console.WriteLine("Enter the duration (in seconds): ");
+    _duration = int.Parse(Console.ReadLine());
+    Console.WriteLine("Prepare to begin...");
+    Thread.Sleep(2000);
+
+}
+
+public string DisplayEndingMessage()
+{
+ return "";
+    Console.WriteLine("Good job!");
+    Console.WriteLine($"You completed the {_name} for {_duration} seconds.");
+    Thread.Sleep(2000);
+}
+
+public void ShowSpinner(int seconds)
+{
+ List<string> stringAnimation = new List<string>();
+
+    stringAnimation.Add("|");
+    stringAnimation.Add("/");
+    stringAnimation.Add("-"); 
+    stringAnimation.Add("\\");
+    stringAnimation.Add("|");
+    stringAnimation.Add("/");
+    stringAnimation.Add("-");
+    stringAnimation.Add("\\");
+    int mseconds = seconds * 1000;
+    foreach(string s in stringAnimation)
+    {
+        Console.Write(s);
+        Thread.Sleep(mseconds);
+        Console.Write("\b \b");
+    }
+}
+
+public void ShowCountDown(int seconds)
+{
+    for (int i = seconds; i > 0; i--)
+    {
+        Console.Write(i);
+        Thread.Sleep(1000);
+       Console.Write("\b \b");
+    }
+}
+
+}
+
+/*-----------------------------------------------------------------------------------------------------------------------*/
+
+public class Breathing : Activiy
+{
+
+public Breathing() : base("Breathing Activity", "This activity will help you relax by guiding your breathing.")
+{
+    _name = "Breathing activity.";
+    _description = "This activity will help you relax by walking your through breathing in and out slowly. Clear your mind and focus on your breathing.";
+    _duration = duration;
+}
+
+public void Run()
+{
+
+    DisplayEndingMessage();
+
+        for (int i = 0; i < _duration / 2; i++) // Alternar respiraciones
+        {
+            Console.WriteLine("Breathe in...");
+            ShowCountDown(3);
+            Console.WriteLine("Breathe out...");
+            ShowCountDown(3);
+        }
+
+        DisplayEndingMessage();
+    
+
+        DateTime startTime = DateTime.Now;
+        DateTime futureTime = startTime.AddSeconds(_duration);
+        DateTime currentTime = DateTime.Now;
+
+        while (currentTime < futureTime)
+        {
+            currentTime = DateTime.Now;
+            for (int i = 5; i > 0; i--)
+            {
+                Thread.Sleep(1000);
+                Console.Write($"Breath in.. {i}");
+                
+            }
+            Console.WriteLine("");
+            Console.WriteLine("Breath out.."); //htaerBreath out..
+        }
+}
+}
+
+
+
+    DateTime endTime = DateTime.Now.AddSeconds(_duration);
+
+    while (DateTime.Now < endTime)
+    {
+        Console.WriteLine("Breathe in...");
+       Countdown(5);  // Pause for 5 seconds (change as needed)
+        Console.WriteLine("Breathe out...");
+        Countdown(5);  // Pause for 5 seconds (change as needed)
+    }
+
+
+
+
+
+    Console.WriteLine("Great job! You've completed the Breathing Activity.");
+    
+
+    private void Countdown(int seconds)
+    {
+        for (int i = seconds; i > 0; i--)
+        {
+            Console.Write(i + " ");
+            Thread.Sleep(1000);  // Wait for 1 second
+        
+        }
+    }
+
+/*----------------------------------------------------------------------------------------------------------------*/
+
+public class Reflecting : Activiy
+{
+private List<string> _prompts;
+private List<string> _questions;
+
+public Reflecting (int duration, string description, string name) : base (name, description,duration)
+{
+    _name = name;
+    _description = description;
+    _duration = duration;
+    _prompts = new List<string>();
+    _questions = new List<string>();
+}
+
+
+public void Run()
+{
+
+}
+
+public string GetRandomPrompt()
+{
+    return "";
+}
+
+public string GetRandomQuestion()
+{
+    return "";
+}
+
+public void DisplayPrompt()
+{
+
+}
+
+public void DisplayQuestions()
+{
+
+}
+
+}
+
+/*----------------------------------------------------------------------------------------------------------------*/
+
+public class Listing : Activiy
+{
+private List<string> _prompts = new List<string>
+{
+    "Who are people that you appreciate?",
+    "What are personal strengths of yours?",
+    "Who are people that you have helped this week?"
+};
+
+private int _count;
+
+public Listing (int duration, string description, string name, int count) : base (name, description,duration)
+{
+    _name = name;
+    _description = description;
+    _duration = duration;
+    _prompts = new List<string> ();
+    _count = count;
+}
+
+public void Run()
+{
+
+}
+
+public void GetRandomPrompt()
+{
+
+}
+
+public List<string> GetListFromtUser()
+{
+    return _prompts;
+}
+
+}
+
