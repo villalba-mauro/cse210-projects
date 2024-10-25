@@ -1,0 +1,5 @@
+00|MAURO|0
+1|read the scriptures|start to read book of helaman|20|False
+1|english|read text in English every day|50|False
+2|marry in the temple|keep convenants|0|100
+3|estudiar mas C#|leer documentacion de C#|60|3|3|0|False
